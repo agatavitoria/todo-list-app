@@ -5,7 +5,9 @@ class TodoRepository {
   late Dio dio;
   final url = 'https://jsonplaceholder.typicode.com/todos';
 
-  TodoRepository([Dio? client]) : dio = client ?? Dio();
+  TodoRepository([Dio? client]) {
+    dio = client ?? Dio();
+  }
 
   Future<List<TodoModel>> fecthTodos() async {
     final response = await dio.get(url);
