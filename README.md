@@ -1,6 +1,6 @@
 # todo_list
 
-A new Flutter project.
+ToDo List with Flutter, applying the MVC pattern and creating unit tests.
 
 ## Getting Started
 
