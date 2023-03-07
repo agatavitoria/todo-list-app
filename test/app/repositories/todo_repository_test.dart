@@ -24,14 +24,12 @@ main() {
       }
     ]
     ''';
-
     when(dio.get('https://jsonplaceholder.typicode.com/todos')).thenAnswer(
       (_) async => Response(
         requestOptions: RequestOptions(path: '/'),
         data: jsonDecode(jsonData),
       ),
     );
-
     final list = await repository.fecthTodos();
     expect(list[0].id, 1);
   });

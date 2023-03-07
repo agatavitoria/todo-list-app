@@ -11,16 +11,26 @@ import 'home_controller_test.mocks.dart';
 main() {
   final repository = MockTodoRepository();
   final controller = HomeController(repository);
+  test('should initiate the state as start', () async {
+    expect(controller.state, HomeState.start);
+  });
 
   test('should get ToDos from repository', () async {
     final mockedList = [
       TodoModel(userId: 1, id: 1, title: 'title', completed: false),
       TodoModel(userId: 2, id: 2, title: 'title', completed: false),
     ];
-    
-    when(repository.fecthTodos()).thenAnswer((_) async => mockedList);
-
+    when(repository.fecthTodos()).thenAnswer(
+      (_) async => mockedList,
+    );
     await controller.start();
+    expect(controller.state, HomeState.success);
     expect(controller.todos.isNotEmpty, true);
+  });
+
+  test('should change the state to error if the request fails', () async {
+    when(repository.fecthTodos()).thenThrow(Exception());
+    await controller.start();
+    expect(controller.state, HomeState.error);
   });
 }
