@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:todo_list/app/models/todo_model.dart';
 import 'package:todo_list/app/repositories/todo_repository.dart';
 
 class HomeController {
   List<TodoModel> todos = [];
-  HomeState state = HomeState.start;
+  final state = ValueNotifier<HomeState>(HomeState.start);
 
   late TodoRepository _repository;
 
@@ -12,13 +13,13 @@ class HomeController {
   }
 
   Future<void> start() async {
-    state = HomeState.load;
+    state.value = HomeState.load;
 
     try {
       todos = await _repository.fecthTodos();
-      state = HomeState.success;
+      state.value = HomeState.success;
     } catch (error) {
-      state = HomeState.error;
+      state.value = HomeState.error;
     }
   }
 }
