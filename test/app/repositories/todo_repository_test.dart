@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:todo_list/app/config/api.dart';
 import 'package:todo_list/app/repositories/todo_repository.dart';
 
 import 'todo_repository_test.mocks.dart';
@@ -24,7 +25,7 @@ main() {
       }
     ]
     ''';
-    when(dio.get('https://jsonplaceholder.typicode.com/todos')).thenAnswer(
+    when(dio.get(Api().url)).thenAnswer(
       (_) async => Response(
         requestOptions: RequestOptions(path: '/'),
         data: jsonDecode(jsonData),
