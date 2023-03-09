@@ -1,16 +1,33 @@
-# todo_list
 
-ToDo List with Flutter, applying the MVC pattern and creating unit tests.
+# ToDo List
 
-## Getting Started
+Lista de tarefas com Flutter, aplicando o padrão MVC e criando testes unitários.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Instalação
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Execute esse comando para gerar os mocks. Eles são necessários nos testes.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub run build_runner build
+```
+
+    
+## Rodando os testes
+
+Para rodar os testes, rode o seguinte comando
+
+```bash
+  flutter test
+  flutter test --coverage
+```
+
+
+## Autores
+
+- [@agatavitoria](https://github.com/agatavitoria)
+
+
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/agata-vitoria-b1643618a)
+
