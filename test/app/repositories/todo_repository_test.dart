@@ -1,16 +1,20 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:todo_list/app/config/api.dart';
+import 'package:todo_list/app/common/app_vars.dart';
 import 'package:todo_list/app/repositories/todo_repository.dart';
 
 import 'todo_repository_test.mocks.dart';
 
 @GenerateMocks([Dio])
-main() {
+main() async {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+
   final dio = MockDio();
   final repository = TodoRepository(dio);
 
@@ -25,7 +29,7 @@ main() {
       }
     ]
     ''';
-    when(dio.get(Api().url)).thenAnswer(
+    when(dio.get(AppVars.apiUrl)).thenAnswer(
       (_) async => Response(
         requestOptions: RequestOptions(path: '/'),
         data: jsonDecode(jsonData),

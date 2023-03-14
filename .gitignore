@@ -12,6 +12,8 @@ migrate_working_dir/
 
 *.mocks.dart
 
+*.env
+
 # IntelliJ related
 *.iml
 *.ipr

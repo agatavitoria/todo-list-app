@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:todo_list/app/common/app_vars.dart';
 import 'package:todo_list/app/models/todo_model.dart';
-
-import '../config/api.dart';
 
 class TodoRepository {
   late Dio dio;
@@ -11,7 +10,7 @@ class TodoRepository {
   }
 
   Future<List<TodoModel>> fecthTodos() async {
-    final response = await dio.get(Api().url);
+    final response = await dio.get(AppVars.apiUrl);
     final list = response.data as List;
 
     List<TodoModel> todos =
