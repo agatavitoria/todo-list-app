@@ -1,6 +1,7 @@
 # ToDo List
 
 Lista de tarefas com Flutter, aplicando o padrão MVC e criando testes unitários.
+
 ## Instalação
 
 Ao instalar o projeto, execute o comando para baixar as dependências.
@@ -8,6 +9,7 @@ Ao instalar o projeto, execute o comando para baixar as dependências.
 ```bash
     flutter pub get
 ```
+
 ## Variáveis de Ambiente
 
 Para rodar esse projeto, você vai precisar criar um aquivo .env na raiz do projeto e adicionar a seguinte váriavel
@@ -15,6 +17,7 @@ Para rodar esse projeto, você vai precisar criar um aquivo .env na raiz do proj
 `API_URL`
 
 Caso exista alguma dúvida, pode consultar `.env.example`
+
 ## Rodando os testes
 
 Para rodar os testes, rode o seguinte comando para criar os Mocks.
